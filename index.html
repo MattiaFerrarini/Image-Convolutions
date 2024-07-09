@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Convolutions</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1 id="title">Image Convolutions</h1>
+        <p>This website is meant to help you play around with image convolutions. Simply follow the steps in the 'Settings' panel to get started.</p>
+        <p> Please, keep in mind that:</p>
+        <ol>
+            <!-- <li>To provide the best interactivness, convolutions are dynamically computed every time the kernel is modified.
+                Therefore, it's best to use small images.
+            </li> -->
+            <li>If your image is bigger than 768x512 px, it will be scaled down to this size.</li>
+            <li>The convolution for the edge pixels is computed according to the periodic boundary condition.</li>
+            <li>To create the kernel more easily, you can hold down the left mouse button and drag the pointer across the kernel matrix.</li>
+        </ol>
+    </header>
+    <main>
+        <div class="container" id="controlBox">
+            <h3>Settings</h3>
+            <form>
+                <fieldset>
+                    <legend>Upload your image</legend>
+                    <input type="file" id="imageUpload" accept="image/*">
+                </fieldset>
+                <fieldset>
+                    <legend>Choose the kernel size</legend>
+                    <label><input type="radio" name="filterSize" value="3" checked>3x3</label>
+                    <label><input type="radio" name="filterSize" value="5">5x5</label>
+                    <label><input type="radio" name="filterSize" value="7">7x7</label>
+                </fieldset>
+                <fieldset>
+                    <legend>Create the kernel</legend>
+                    <div id="kernelOptions">
+                        <div class="kernelValue"><div class="kernelColor"></div><p>-5</p></div>
+                        <div class="kernelValue"><div class="kernelColor"></div><p>-4</p></div>
+                        <div class="kernelValue"><div class="kernelColor"></div><p>-2</p></div>
+                        <div class="kernelValue"><div class="kernelColor"></div><p>-1</p></div>
+                        <div class="kernelValue"><div class="kernelColor"></div><p>-0.5</p></div>
+                        <div class="kernelValue"><div class="kernelColor"></div><p>-0.25</p></div>
+                        <div class="kernelValue"><div class="kernelColor"></div><p>0</p></div>
+                        <div class="kernelValue"><div class="kernelColor"></div><p>0.1</p></div>
+                        <div class="kernelValue"><div class="kernelColor"></div><p>0.25</p></div>
+                        <div class="kernelValue"><div class="kernelColor"></div><p>0.5</p></div>
+                        <div class="kernelValue selectedVal"><div class="kernelColor"></div><p>1</p></div>
+                        <div class="kernelValue"><div class="kernelColor"></div><p>2</p></div>
+                        <div class="kernelValue"><div class="kernelColor"></div><p>4</p></div>
+                        <div class="kernelValue"><div class="kernelColor"></div><p>5</p></div>
+                        <div class="kernelValue"><div class="kernelColor"></div><p>8</p></div>
+                    </div>
+                    <div id="kernel"></div>
+                    <button type="button" id="kernelResetButton">Reset</button>
+                </fieldset>
+            </form>
+        </div>
+        <div class="container imgBox">
+            <h3>Your image</h3>
+            <canvas id="imgCanvas" width="768px" height="512px"></canvas>
+            <button type="button" id="imgControlButton">Show original</button>
+        </div>
+        <div class="container">
+            <h3>Example filters</h3>
+            <ul id="kernelExampleList">
+                <li class="kernelExample">Identity<button>Apply</button></li>
+                <li class="kernelExample">Edge Detection<button>Apply</button></li>
+                <li class="kernelExample">Sharpening<button>Apply</button></li>
+                <li class="kernelExample">Blur<button>Apply</button></li>
+                <li class="kernelExample">Emboss<button>Apply</button></li>
+                <li class="kernelExample">Reverse Emboss<button>Apply</button></li>
+                <li class="kernelExample">Laplacian<button>Apply</button></li>
+                <li class="kernelExample">Horizontal Sobel<button>Apply</button></li>
+                <li class="kernelExample">Vertical Sobel<button>Apply</button></li>
+            </ul>
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
