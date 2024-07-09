@@ -130,22 +130,3 @@ legend {
     padding: 0.25em 0.5em;
     margin-left: 0.5em;
 }
-
-#kernelCol0 {
-    background-color: black;
-}
-#kernelCol1 {
-    background-color: purple;
-}
-#kernelCol2 {
-    background-color: lightblue;
-}
-#kernelCol3 {
-    background-color: lightgreen;
-}
-#kernelCol4 {
-    background-color: yellow;
-}
-#kernelCol5 {
-    background-color: white;
-}
